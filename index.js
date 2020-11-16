@@ -8,5 +8,10 @@ function createEmployeeRecord(arr){
     emp_record.payPerHour = arr[3];
     emp_record.timeInEvents = [];
     emp_record.timeOutEvents = [];
+
     return emp_record;
+}
+
+function createEmployeeRecords(arr){
+
 }
