@@ -13,10 +13,8 @@ function createEmployeeRecord(arr){
 }
 
 function createEmployeeRecords(arr){
-    let emp_record = {};
-    //const emp_flat = arr.flat();
-    //emp_record.firstName = emp_flat[0];
-    return emp_record;
+    const emp_map = arr.map(x => createEmployeeRecord(x));
+    return emp_map;
 }
 
 function createTimeInEvent(arr, time){
