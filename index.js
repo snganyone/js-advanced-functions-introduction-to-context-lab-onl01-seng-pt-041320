@@ -18,9 +18,19 @@ function createEmployeeRecords(arr){
 }
 
 function createTimeInEvent(arr, time){
-    const time_in = {};
     let [date, hour] = time.split(' ');
-    time_in.type = "TimeIn";
-    time_in.hour = parseInt(hour, 10);
-    time_in.date = parseInt(date);
+    arr.type = "TimeIn";
+    arr.hour = parseInt(hour, 10);
+    arr.date = date;
+    arr.timeInEvents.push(arr);
+    return arr;
+}
+
+function createTimeOutEvent(arr, time){
+    let [date, hour] = time.split(' ');
+    arr.type = "TimeOut";
+    arr.hour = parseInt(hour, 10);
+    arr.date = date;
+    arr.timeOutEvents.push(arr);
+    return arr;
 }
