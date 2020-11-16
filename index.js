@@ -34,3 +34,12 @@ function createTimeOutEvent(arr, time){
     arr.timeOutEvents.push(arr);
     return arr;
 }
+
+function hoursWorkedOnDate(arr, time){
+    let timein = createTimeInEvent(arr, time);
+    let timeout = createTimeOutEvent(arr, time);
+
+    let elapsed_time = timein.hour - timeout.hour;
+    let hours = parseInt(elapsed_time);
+    return elapsed_time;
+}
