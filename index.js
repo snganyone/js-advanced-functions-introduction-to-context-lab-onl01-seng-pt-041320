@@ -13,5 +13,16 @@ function createEmployeeRecord(arr){
 }
 
 function createEmployeeRecords(arr){
+    let emp_record = {};
+    //const emp_flat = arr.flat();
+    //emp_record.firstName = emp_flat[0];
+    return emp_record;
+}
 
+function createTimeInEvent(arr, time){
+    const time_in = {};
+    let [date, hour] = time.split(' ');
+    time_in.type = "TimeIn";
+    time_in.hour = parseInt(hour, 10);
+    time_in.date = parseInt(date);
 }
