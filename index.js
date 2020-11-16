@@ -39,7 +39,6 @@ function hoursWorkedOnDate(arr, time){
     let timein = createTimeInEvent(arr, time);
     let timeout = createTimeOutEvent(arr, time);
 
-    let elapsed_time = timein.hour - timeout.hour;
-    let hours = parseInt(elapsed_time);
-    return elapsed_time;
+    let elapsed_time = timein - timeout;
+    return elapsed_time.hours;
 }
