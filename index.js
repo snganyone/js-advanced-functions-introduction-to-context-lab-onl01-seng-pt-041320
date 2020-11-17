@@ -52,9 +52,13 @@ function hoursWorkedOnDate(employee, date){
     return elapsed_time;
 }
 
-function wagesEarnedOnDate(employee, time){
-    const hours = hoursWorkedOnDate(employee, time);
+function wagesEarnedOnDate(employee, date){
+    const hours = hoursWorkedOnDate(employee, date);
 
     const wages = employee.payPerHour * hours;
     return wages;
+}
+
+function AllWagesFor(employee, date){
+    
 }
