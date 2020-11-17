@@ -60,5 +60,9 @@ function wagesEarnedOnDate(employee, date){
 }
 
 function AllWagesFor(employee, date){
-    
+    const hours = hoursWorkedOnDate(employee, date);
+    const wages = wagesEarnedOnDate(employee, date);
+
+    const all_wages = hours + wages;
+    return all_wages;
 }
