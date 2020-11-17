@@ -59,10 +59,19 @@ function wagesEarnedOnDate(employee, date){
     return wages;
 }
 
-function AllWagesFor(employee, date){
-    const hours = hoursWorkedOnDate(employee, date);
-    const wages = wagesEarnedOnDate(employee, date);
+function allWagesFor(employee){
+    const timein = employee.timeInEvents.filter(function(event){
+        return event.date;
+    });
+    const timeout = employee.timeOutEvents.filter(function(event){
+        return event.type;
+    });
+    //console.log(timein);
+}
 
-    const all_wages = hours + wages;
-    return all_wages;
+function findEmployeeByFirstName(src, firstname){
+    let obj = {};
+    obj.Firstname = src[0];
+    obj.familyName = src[1];
+    return obj.Firstname;
 }
