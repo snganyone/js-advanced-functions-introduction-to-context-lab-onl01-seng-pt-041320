@@ -48,10 +48,6 @@ function hoursWorkedOnDate(employee, date){
         return event.date === date;
     });
 
-    //console.log("Employee", arr);
-    //console.log("timeIn:", timein.date);
-    //console.log("timeOut:", timeout.hour);
-
     const elapsed_time = (timeout.hour - timein.hour) / 100;
     return elapsed_time;
 }
