@@ -17,28 +17,48 @@ function createEmployeeRecords(arr){
     return emp_map;
 }
 
-function createTimeInEvent(arr, time){
+function createTimeInEvent(employee, time){
     let [date, hour] = time.split(' ');
-    arr.type = "TimeIn";
-    arr.hour = parseInt(hour, 10);
-    arr.date = date;
-    arr.timeInEvents.push(arr);
-    return arr;
+    let obj = {};
+
+    obj.type = "TimeIn";
+    obj.hour = parseInt(hour, 10);
+    obj.date = date;
+    employee.timeInEvents.push(obj);
+    return employee;
 }
 
-function createTimeOutEvent(arr, time){
+function createTimeOutEvent(employee, time){
     let [date, hour] = time.split(' ');
-    arr.type = "TimeOut";
-    arr.hour = parseInt(hour, 10);
-    arr.date = date;
-    arr.timeOutEvents.push(arr);
-    return arr;
+    let obj = {};
+
+    obj.type = "TimeOut";
+    obj.hour = parseInt(hour, 10);
+    obj.date = date;
+    employee.timeOutEvents.push(obj);
+    return employee;
 }
 
-function hoursWorkedOnDate(arr, time){
-    let timein = createTimeInEvent(arr, time);
-    let timeout = createTimeOutEvent(arr, time);
+function hoursWorkedOnDate(employee, date){
+    const timein = employee.timeInEvents.find(function(event){
+        return event.date === date;
+    });
 
-    let elapsed_time = timein - timeout;
-    return elapsed_time.hours;
+    const timeout = employee.timeOutEvents.find(function(event){
+        return event.date === date;
+    });
+
+    //console.log("Employee", arr);
+    //console.log("timeIn:", timein.date);
+    //console.log("timeOut:", timeout.hour);
+
+    const elapsed_time = (timeout.hour - timein.hour) / 100;
+    return elapsed_time;
+}
+
+function wagesEarnedOnDate(employee, time){
+    const hours = hoursWorkedOnDate(employee, time);
+
+    const wages = employee.payPerHour * hours;
+    return wages;
 }
